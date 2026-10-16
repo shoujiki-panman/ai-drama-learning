@@ -1,0 +1,34 @@
+[
+  {
+    "name": "cut-01-original.mp4",
+    "local_path": "/Users/tanumashuu/mulmoclaude/work/ai-drama-learning/outputs/engawa-autumn-santa-preparation-20261015/cut-01-original.mp4",
+    "library_id": "libfile_b21bb2cd35b081918763e8d2b33be05c",
+    "bytes": 8204733,
+    "sha256": "dcb3c067e4a4c7e4df313aed68308d93c4af69e77938304cefd48d086b7d59da",
+    "included_in_git": false
+  },
+  {
+    "name": "cut-02-original.mp4",
+    "local_path": "/Users/tanumashuu/mulmoclaude/work/ai-drama-learning/outputs/engawa-autumn-santa-preparation-20261015/cut-02-original.mp4",
+    "library_id": "libfile_4494928feed08191878baefbe01a854a",
+    "bytes": 8219329,
+    "sha256": "866fd05c58759d934fa159352e49c3db3b09061dc4daa2d750b303cc6b223b3b",
+    "included_in_git": false
+  },
+  {
+    "name": "cut-02-revision-01.mp4",
+    "local_path": "/Users/tanumashuu/mulmoclaude/work/ai-drama-learning/outputs/engawa-autumn-santa-preparation-20261015/cut-02-revision-01.mp4",
+    "library_id": "libfile_8ca47008fe0c8191b8f65a7896839135",
+    "bytes": 8150791,
+    "sha256": "05571200b1af6bbc929285c2b2c584a9467d7245d74677022d174ff4ebf7ca85",
+    "included_in_git": false
+  },
+  {
+    "name": "cut-02-next-start-6p75.png",
+    "local_path": "/Users/tanumashuu/mulmoclaude/work/ai-drama-learning/outputs/engawa-autumn-santa-preparation-20261015/cut-02-next-start-6p75.png",
+    "library_id": "libfile_53d6ee072ecc81918f104cbb3914ae80",
+    "bytes": 955964,
+    "sha256": "9c7aa861553200a3275957ec1d1f725372c509b220d4fc628cd432d744e1fbfe",
+    "included_in_git": false
+  }
+]
