@@ -4,7 +4,7 @@ Dreamina / Seedance 2.5で動物ドラマを制作する取り組み。現在は
 
 最初に [STATUS.md](STATUS.md)、次に [AGENTS.md](AGENTS.md) と [制作手順](docs/workflow.md) を読む。台本は [script.md](docs/script.md)、次回案は [撮影設計](docs/next-shooting-plan.md)、実素材一覧は [assets.json](assets.json)。
 
-動画・参照画像の実体は元Macに保存。元フォルダ：`/Users/tanumashuu/mulmoclaude/work/ai-drama-learning`。このリポジトリは非公開で運用する。有料講座の本文・添付指示書・購入メール・認証情報は収録しない。
+動画・参照画像の実体は元Macに保存。元フォルダ：`/Users/tanumashuu/mulmoclaude/work/ai-drama-learning`。このリポジトリは公開している（2026-10-23〜）。有料講座の本文・添付指示書・購入メール・認証情報は収録しない。
 
 ## 発表資料
 
