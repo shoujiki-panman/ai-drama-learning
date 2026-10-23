@@ -1,0 +1,618 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>縁側の猫と犬</title>
+<meta name="description" content="AIドラマ『秋の縁側』の作り方（2026-10-22・BootCamp共有）">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+<!--
+  使い方
+  1. 下の <script type="text/markdown" id="source"> の中身を書き換える
+  2. このファイルをブラウザで開く（ファイルをダブルクリックでよい）
+
+  書き方
+  - スライドの区切りは、行に --- だけ
+  - スライドの1行目に目印を置くと形が変わる
+      ::title::   表紙（# 題名 / 次の行から小さい字）
+      ::center::  一言だけを大きく真ん中に（区切り・強調用）
+      ::right::   2段組み。::right:: より上が左、下が右
+      ::appendix:: 付録の目次。これより後ろの枚が付録になり、目次と「← 付録の目次」が自動で付く
+                   本編のページ番号と進み具合は、付録の手前までで数える
+      （目印なし）見出し + 箇条書き or コード1つ
+  - ※ で始まる行は、出典や測り方の小さな注記になる
+  - [文字](#12) のように # で始まるリンクは、そのページへ飛ぶ
+  - 1枚に載せるのは「箇条書き2〜5行」か「コード1つ」まで
+  - （このデッキで追加）![説明](x.mp4) は動画（controls muted playsinline）、| で始まる行の塊は表になる
+
+  操作
+  ← → / space / クリック・タップ：ページ送り
+  o：一覧   f：全画面   t：明暗の切替   URL の #3 で3枚目を直接開く
+-->
+<script type="text/markdown" id="source">
+::center::
+# 縁側の猫と犬
+
+AI で短いドラマを作った　2026-10-22
+
+![猫と犬とサンタ帽の場面（約25秒）](scene.mp4)
+
+---
+
+::center::
+# 25秒の場面ができた
+
+寒がる猫に、犬がサンタ帽を持ってくる
+
+![場面の4コマ：寒がる猫、帽子を運ぶ犬、かぶせる犬、帽子をかぶった猫](scene_row.jpg)
+
+---
+
+::center::
+# 道具は3つ
+
+- 絵：ChatGPT の画像生成
+- 動画：Dreamina（Seedance 2.5）
+- つなぎと音量：ffmpeg（AI に頼んだ）
+
+---
+
+::center::
+# 先に、台本を書いた
+
+台詞と終わり方まで、全部決めてから作る
+
+```
+猫「うう……さむい」
+犬「中、入る？」
+猫「うん……へっくしゅん！」
+犬「待って！ いいのある！」
+```
+
+---
+
+::center::
+# 見た目を、先に決めた
+
+猫・犬・縁側を、1枚ずつ絵にした
+
+![猫の見た目を決めた絵](cat.png) ![犬の見た目を決めた絵](dog.png)
+
+---
+
+::center::
+# 10秒ずつ、1本ずつ作った
+
+1本作って見てから、次の指示を書く
+
+- 1本目：猫が寒がり、くしゃみ
+- 2本目：犬が帽子を持ってくる
+
+---
+
+::center::
+# 帽子が、床から頭へ飛んだ
+
+![床にあった帽子が、次の瞬間には猫の頭に乗っている4コマ](cut2_jump_row.jpg)
+
+---
+
+::center::
+# 直しても、だめだった
+
+後ろの4秒だけ作り直した
+猫の姿勢が飛び、犬が帽子の先をくわえた
+
+---
+
+::center::
+# 使えるところで、切った
+
+2本目は6.75秒まで使い、続きを別の1本で作った
+
+![6.75秒のコマ：帽子はまだ床にある](cut2_6p75.png)
+
+---
+
+::center::
+# 3本を、つないだ
+
+10秒 ＋ 6.75秒 ＋ 8秒 ＝ 約25秒
+音量をそろえ、猫への寄りは外した
+
+---
+
+::center::
+# 学んだこと
+
+- 見た目と台本を、先に決める
+- 1本ずつ見てから、次を書く
+- 失敗した動画も、使える秒だけ使う
+
+---
+
+::center::
+# 次は、たぬきと焼き芋
+
+残りは約50秒。まだ作っていない
+
+![たぬきの見た目を決めた絵](tanuki.png)
+
+---
+
+::appendix::
+# 付録
+
+---
+
+# 付録：縁側の絵 {5}
+
+- 背景も、先に1枚決めた
+- 「おばあちゃんの家の縁側」にした
+- きれいすぎる部屋は、やめた
+
+::right::
+
+| 縁側 |
+| --- |
+| ![縁側の絵](engawa.png) |
+
+---
+
+# 付録：出典
+
+※ 作り方の参考：note の講座「AIで『ドラマ』を撮る」。講座の本文は載せない
+※ 台本と生成の回数：制作記録 STATUS.md・assets.json（2026-10-15〜20）
+※ 2本目の4コマ：元動画の 6.75・7.5・8.5・9.5秒
+※ 絵：ChatGPT の画像生成で、1枚につき1回（2026-10-12）
+
+</script>
+
+<style>
+:root {
+  --slide-bg: #000000;
+  --slide-fg: #ffffff;
+  --slide-accent: #ff6a00;
+  --slide-muted: #8a8a8a;
+  --slide-code-bg: #0d0d0d;
+  --slide-border: rgba(255, 255, 255, 0.12);
+  --slide-font: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --slide-display-font: var(--slide-font);
+  /* 字の大きさは3段だけ：見出し・本文・注記 */
+  --fs-head: 3rem;
+  --fs-body: 1.9rem;
+  --fs-note: 1.2rem;
+  color-scheme: dark;
+}
+:root[data-theme='light'] {
+  --slide-bg: #fafafa;
+  --slide-fg: #1f1f1f;
+  --slide-accent: #e85d00;
+  --slide-muted: #777777;
+  --slide-code-bg: #f0f0f0;
+  --slide-border: rgba(0, 0, 0, 0.12);
+  color-scheme: light;
+}
+/* 16:9 のキャンバスとして伸縮させる（1280×720 で 16px） */
+html { font-size: max(12px, min(1.25vw, 2.223vh)); touch-action: manipulation; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  background: var(--slide-bg);
+  color: var(--slide-fg);
+  font-family: var(--slide-font);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+#deck { position: fixed; inset: 0; }
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 9vw;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.slide.active { display: flex; animation: slide-in 0.25s ease; }
+@keyframes slide-in { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: none; } }
+
+h1, h2 { font-family: var(--slide-display-font); font-weight: 700; line-height: 1.35; margin: 0 0 2.5rem; }
+h1, h2 { font-size: var(--fs-head); }
+p, li, blockquote { font-size: var(--fs-body); line-height: 1.6; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0; padding-left: 1.4em; }
+/* 番号は点より幅があるので、見出しの左端からはみ出さないだけ余白を取る */
+ol { padding-left: 1.9em; }
+li { margin: 0.4rem 0; }
+li::marker { color: var(--slide-accent); }
+/* 箇条書きのあとの一文は、結びとして間を空けて太く */
+ul + p, ol + p { margin-top: 2.5rem; font-weight: 700; }
+a { color: var(--slide-accent); }
+strong { color: var(--slide-accent); }
+code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  background: var(--slide-code-bg);
+  border: 1px solid var(--slide-border);
+  border-radius: 0.3rem;
+  padding: 0.05em 0.35em;
+  font-size: 0.85em;
+}
+pre { margin: 0; }
+pre code {
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1.55;
+  padding: 1.6rem 2rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+}
+blockquote {
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 0.3rem solid var(--slide-accent);
+  color: var(--slide-muted);
+}
+img { max-width: 100%; max-height: 60vh; object-fit: contain; }
+/* 追加：動画と表（このデッキで使う分だけ） */
+video { display: block; height: 49vh; max-width: 100%; background: #000; }
+.cols img { max-height: 68vh; }
+table { border-collapse: collapse; font-size: var(--fs-body); line-height: 1.5; }
+th, td { padding: 0.4rem 1.6rem; border-bottom: 1px solid var(--slide-border); text-align: left; }
+th { color: var(--slide-muted); font-weight: 400; }
+/* 2列の表は文で読むので左寄せ */
+
+/* v6〜v8：表の中の写真・動画（見出し行がキャプション） */
+td img, td video { display: block; height: 30vh; width: auto; max-width: 100%; object-fit: contain; }
+td:has(img, video) { padding: 0.4rem 0.6rem; border-bottom: none; }
+.slide.center img { max-height: 34vh; margin: 1.5rem 0 0.5rem; }
+.cols td img, .cols td video { height: 40vh; }
+.cols td img[src^="chopsticks_side"] { height: 34vh; }
+.cols:has(img[src^="cam_"]) { gap: 2.5rem; }
+.cols td img[src^="cam_"] { height: 45vh; }
+table:not(:has(img, video)) th { white-space: nowrap; }
+.cols:has(img[src^="chopsticks_pick_20mm"], img[src^="chopsticks_ellipsoid"]) td:first-child { white-space: nowrap; }
+.cols:has(img[src^="grip_design"]) { gap: 3rem; }
+.cols td img[src^="grip_design"], .cols td img[src^="grip_chop_plan3_thumb"] { height: 23vh; }
+/* 右が写真・動画の2段組みは、写真の幅を先に取り、文字を残りに広げる */
+.cols:has(> div:last-child td img, > div:last-child td video) { grid-template-columns: 1fr auto; }
+.cols:has(img[src^="chopsticks_pick_20mm"], img[src^="chopsticks_ellipsoid"]) { gap: 2rem; }
+.cols td img[src^="chopsticks_pick_20mm"], .cols td img[src^="chopsticks_ellipsoid"] { height: 34vh; }
+.cols td img[src^="grasp_tweezers"] { height: 40vh; }
+.cols:has(img[src^="grasp_search"]) { gap: 2rem; }
+.cols td img[src^="grasp_search"] { height: 23vh; }
+.cols td img[src^="chopsticks_mu"] { height: 26vh; }
+td img[src^="grip_tw_plan1_row"], td img[src^="grip_chop_plan3_row"] { height: 21vh; }
+td img[src^="grip_design_feix"] { height: 21vh; }
+td video[src$="transfer_9mm_side.mp4"] { height: 41vh; }
+td video[src^="grip_hold"], td video[src^="grasp_search"] { height: 40vh; }
+.cols td video[src^="eval_act"] { height: 34vh; }
+.toc-ref { color: var(--slide-muted); font-size: var(--fs-note); margin-left: 0.6em; }
+/* v9：本編は「短い言葉1つ＋大きな写真1つ」 */
+.slide.center { padding: 5vh 7vw; }
+.slide.center h1 { font-size: 4.5rem; }
+.slide.center h2 { font-size: var(--fs-head); margin: 2.5rem 0 0; }
+.slide.center h2 + h2 { margin-top: 1rem; }
+.slide.center p:has(img, video) { margin: 2.5rem 0 0; display: flex; gap: 1.5rem; justify-content: center; }
+.slide.center p img, .slide.center p video { display: block; height: 62vh; width: auto; max-width: 100%; max-height: none; margin: 0; border-radius: 0.6rem; }
+.slide.center p:has(> :nth-child(2)) img, .slide.center p:has(> :nth-child(2)) video { height: 56vh; max-width: calc(50% - 0.75rem); object-fit: contain; }
+.slide.center p:has(> video:nth-child(2)) video { height: auto; width: calc(50% - 0.75rem); }
+.slide.number .cols { grid-template-columns: 1fr auto; gap: 4rem; }
+.slide.number h1 { white-space: nowrap; font-size: 7rem; line-height: 1.1; margin: 0 0 1.5rem; color: var(--slide-accent); }
+.slide.number h2 { font-size: var(--fs-head); margin: 0; }
+.slide.number video { height: 50vh; border-radius: 0.6rem; }
+.slide.center h1 + p:not(:has(img, video)), .slide.center p:not(:has(img, video)) { color: var(--slide-muted); margin: 0.4rem 0 0; }
+.slide.center h1 + p:not(:has(img, video)) { margin-top: 1.2rem; }
+.slide.center p:has(img, video) { margin-top: 2rem; }
+.slide.center p img, .slide.center p video { height: 52vh; }
+.slide.center p:has(> :nth-child(2)) img, .slide.center p:has(> :nth-child(2)) video { height: 50vh; }
+.slide.center pre { text-align: left; margin-top: 2.5rem; }
+.slide.center table { margin-top: 3rem; }
+.slide.center table th, .slide.center table td { text-align: center; padding: 0.8rem 1.2rem; }
+.slide.center table th, .slide.center table td { font-size: 2.3rem; }
+.slide:has(video[src^="g1_demo"]) h1 { font-size: 4.5rem; }
+.slide.number .cols > div:first-child p { white-space: nowrap; }
+.slide.center ul { text-align: left; margin-top: 2rem; }
+.slide.number .cols > div:first-child p { font-size: var(--fs-head); color: var(--slide-muted); }
+.appendix-list { columns: 2; column-gap: 3rem; }
+.appendix-list li { font-size: 1.3rem; white-space: nowrap; margin: 0.25rem 0; break-inside: avoid; }
+.slide.in-appendix p.note { margin: 0.35rem 0; }
+/* このデッキ：横長の4コマは高さでなく幅で収める */
+.slide.center p img[src$="_row.jpg"] { height: auto; width: auto; max-width: 100%; max-height: 50vh; object-fit: contain; }
+/* ※ で始まる行：出典や測り方の注記 */
+p.note { font-size: var(--fs-note); line-height: 1.5; font-weight: 400; color: var(--slide-muted); margin-top: 2rem; }
+
+/* ::appendix:: 付録の目次と、各枚の戻り道 */
+.appendix-list { padding-left: 1.9em; }
+.appendix-list a { color: var(--slide-fg); text-decoration: none; border-bottom: 1px solid var(--slide-border); }
+.appendix-list a:hover { color: var(--slide-accent); }
+.back-link {
+  position: absolute;
+  left: 9vw;
+  bottom: 4vh;
+  font-size: var(--fs-note);
+  color: var(--slide-muted);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--slide-accent); }
+body.overview .back-link { display: none; }
+
+/* ::title:: 表紙 */
+.slide.title h1 { font-size: var(--fs-head); margin-bottom: 1.5rem; }
+.slide.title h1::after {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 0.35rem;
+  margin-top: 1.5rem;
+  background: var(--slide-accent);
+}
+.slide.title p { font-size: var(--fs-body); color: var(--slide-muted); margin: 0.2rem 0; }
+
+/* ::center:: 一言 */
+.slide.center { align-items: center; text-align: center; }
+.slide.center h1 { font-size: 4.5rem; margin: 0; }
+.slide.center h1 + h1 { margin-top: 0.5rem; }
+
+/* ::right:: 2段組み */
+/* 左が短いときは右を広く使う（左は最大で半分） */
+.cols { display: grid; grid-template-columns: fit-content(50%) 1fr; gap: 5rem; align-items: center; }
+
+/* 下の余白：ページ番号と進み具合 */
+#progress {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 0.25rem;
+  background: var(--slide-accent);
+  transition: width 0.25s ease;
+}
+#page {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1rem;
+  font-size: var(--fs-note);
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* o：一覧 */
+body.overview { overflow: auto; }
+body.overview #deck {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+body.overview .slide {
+  position: relative;
+  display: flex;
+  aspect-ratio: 16 / 9;
+  font-size: 0.3rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--slide-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  animation: none;
+}
+body.overview .slide * { font-size: inherit; }
+body.overview .slide h1 { font-size: 1.6em; margin-bottom: 0.6em; }
+body.overview .slide.center h1 { font-size: 2.4em; }
+body.overview .slide pre code { padding: 0.5em; }
+body.overview .slide.active { border-color: var(--slide-accent); }
+body.overview .slide.title h1::after { width: 3em; height: 0.25em; margin-top: 0.8em; }
+body.overview #progress, body.overview #page { display: none; }
+
+/* スマホ縦：2段組みを縦に並べる */
+@media (max-aspect-ratio: 1/1) {
+  html { font-size: max(10px, 2.6vw); }
+  .slide { padding: 6vh 6vw; }
+  .cols { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media print {
+  body { overflow: visible; }
+  #deck { position: static; }
+  .slide { position: relative; display: flex; height: 100vh; page-break-after: always; animation: none; }
+  #progress, #page { display: none; }
+}
+</style>
+<div id="deck"></div>
+<div id="progress"></div>
+<div id="page"></div>
+
+<script>
+// ---- Markdown（このテンプレで使う分だけ） ----
+function escapeHtml(text) {
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function inline(text) {
+  const codes = [];
+  let out = escapeHtml(text).replace(/`([^`]+)`/g, (_, c) => {
+    codes.push(c);
+    return '\u0000' + (codes.length - 1) + '\u0000';
+  });
+  out = out
+    .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (_, alt, src) => /\.(mp4|webm|mov)$/i.test(src)
+      ? '<video src="' + src + '" controls muted playsinline loop aria-label="' + alt + '"></video>'
+      : '<img src="' + src + '" alt="' + alt + '">')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, label, href) => href.startsWith('#')
+      ? '<a href="' + href + '">' + label + '</a>'
+      : '<a href="' + href + '" target="_blank" rel="noopener">' + label + '</a>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return out.replace(/\u0000(\d+)\u0000/g, (_, i) => '<code>' + codes[i] + '</code>');
+}
+
+function renderList(lines, ordered) {
+  const tag = ordered ? 'ol' : 'ul';
+  const start = ordered ? parseInt(lines[0], 10) : 1;
+  const open = start > 1 ? '<ol start="' + start + '">' : '<' + tag + '>';
+  const items = lines.map((l) => '<li>' + inline(l.replace(/^\s*([-*]|\d+\.)\s+/, '')) + '</li>');
+  return open + items.join('') + '</' + tag + '>';
+}
+
+function renderBlock(block) {
+  const lines = block.split('\n');
+  const first = lines[0];
+  const heading = first.match(/^(#{1,2})\s+(.*)$/);
+  if (heading && lines.length === 1) return '<h' + heading[1].length + '>' + inline(heading[2]) + '</h' + heading[1].length + '>';
+  if (lines.every((l) => /^\s*[-*]\s+/.test(l))) return renderList(lines, false);
+  if (lines.every((l) => /^\s*\d+\.\s+/.test(l))) return renderList(lines, true);
+  if (lines.length > 1 && lines.every((l) => /^\|/.test(l))) {
+    const cells = (l) => l.replace(/^\||\|$/g, '').split('|').map((c) => inline(c.trim()));
+    const rows = lines.filter((l) => !/^\|[\s:|-]+\|$/.test(l)).map(cells);
+    return '<table><thead><tr>' + rows[0].map((c) => '<th>' + c + '</th>').join('') + '</tr></thead><tbody>' +
+      rows.slice(1).map((r) => '<tr>' + r.map((c) => '<td>' + c + '</td>').join('') + '</tr>').join('') + '</tbody></table>';
+  }
+  if (lines.every((l) => /^>\s?/.test(l))) return '<blockquote>' + lines.map((l) => inline(l.replace(/^>\s?/, ''))).join('<br>') + '</blockquote>';
+  return lines.map((l) => {
+    const h = l.match(/^(#{1,2})\s+(.*)$/);
+    if (h) return '<h' + h[1].length + '>' + inline(h[2]) + '</h' + h[1].length + '>';
+    return l.startsWith('※') ? '<p class="note">' + inline(l) + '</p>' : '<p>' + inline(l) + '</p>';
+  }).join('');
+}
+
+function renderMarkdown(md) {
+  const html = [];
+  const fence = /```(\w*)\n([\s\S]*?)```/g;
+  let last = 0;
+  let m;
+  const pushText = (text) => text.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean).forEach((b) => html.push(renderBlock(b)));
+  while ((m = fence.exec(md))) {
+    pushText(md.slice(last, m.index));
+    const lang = m[1] ? ' class="language-' + m[1] + '"' : '';
+    html.push('<pre><code' + lang + '>' + escapeHtml(m[2].replace(/\n$/, '')) + '</code></pre>');
+    last = fence.lastIndex;
+  }
+  pushText(md.slice(last));
+  return html.join('');
+}
+
+// ---- スライドに切る ----
+function buildSlide(text) {
+  const el = document.createElement('section');
+  el.className = 'slide';
+  let body = text.trim();
+  const marker = body.match(/^::(title|center|number|appendix)::\s*(\n|$)/);
+  if (marker) {
+    el.classList.add(marker[1]);
+    body = body.slice(marker[0].length);
+  }
+  if (/^::right::\s*$/m.test(body)) {
+    const [left, right] = body.split(/^::right::\s*$/m);
+    const head = el.classList.contains('number') ? null : left.match(/^(#{1,2}\s+.*)\n/);
+    const leftBody = head ? left.slice(head[0].length) : left;
+    el.innerHTML = (head ? renderMarkdown(head[1]) : '') +
+      '<div class="cols"><div>' + renderMarkdown(leftBody) + '</div><div>' + renderMarkdown(right) + '</div></div>';
+  } else {
+    el.innerHTML = renderMarkdown(body);
+  }
+  return el;
+}
+
+const source = document.getElementById('source').textContent;
+const deck = document.getElementById('deck');
+const slides = source.split(/^---\s*$/m).filter((s) => s.trim()).map(buildSlide);
+slides.forEach((s) => deck.appendChild(s));
+
+// ---- 付録：::appendix:: の枚を目次にし、後ろの枚へのリンクと戻り道を付ける ----
+const appendixAt = slides.findIndex((s) => s.classList.contains('appendix'));
+const mainCount = appendixAt < 0 ? slides.length : appendixAt;
+
+function buildAppendix() {
+  if (appendixAt < 0) return;
+  const list = document.createElement('ol');
+  list.className = 'appendix-list';
+  slides.slice(appendixAt + 1).forEach((s, i) => {
+    const title = s.querySelector('h1, h2');
+    let ref = '';
+    if (title) {
+      const m = title.innerHTML.match(/\s*\{([\d,]+)\}\s*$/);
+      if (m) { ref = ' <span class="toc-ref">→ 本編' + m[1].split(',').join('・') + '枚目</span>'; title.innerHTML = title.innerHTML.slice(0, m.index); }
+    }
+    const item = document.createElement('li');
+    item.innerHTML = '<a href="#' + (appendixAt + i + 2) + '">' + (title ? title.innerHTML.replace(/^付録[：:]\s*/, '') : '付録 ' + (i + 1)) + '</a>' + ref;
+    list.appendChild(item);
+    s.classList.add('in-appendix');
+    s.insertAdjacentHTML('beforeend', '<a class="back-link" href="#' + (appendixAt + 1) + '">← 付録の目次</a>');
+  });
+  slides[appendixAt].appendChild(list);
+}
+buildAppendix();
+if (window.hljs) document.querySelectorAll('pre code').forEach((el) => window.hljs.highlightElement(el));
+const firstHeading = slides[0] && slides[0].querySelector('h1');
+if (firstHeading) document.title = firstHeading.textContent;
+
+// ---- ページ送り ----
+let current = 0;
+
+function show(index) {
+  current = Math.max(0, Math.min(slides.length - 1, index));
+  slides.forEach((s, i) => s.classList.toggle('active', i === current));
+  const inAppendix = appendixAt >= 0 && current >= appendixAt;
+  const appendixLabel = current === appendixAt ? '付録' : '付録 ' + (current - appendixAt) + ' / ' + (slides.length - appendixAt - 1);
+  document.getElementById('page').textContent = inAppendix
+    ? appendixLabel
+    : (current + 1) + ' / ' + mainCount;
+  document.getElementById('progress').style.width = (inAppendix ? 100 : (current + 1) / mainCount * 100) + '%';
+  history.replaceState(null, '', '#' + (current + 1));
+}
+
+function toggleOverview() {
+  const on = document.body.classList.toggle('overview');
+  if (!on) slides[current].scrollIntoView();
+  else slides[current].scrollIntoView({ block: 'center' });
+}
+
+function toggleFullscreen() {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen().catch(() => {});
+}
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+  root.dataset.theme = next;
+  try { localStorage.setItem('slide-theme', next); } catch (e) { /* 保存できなくても表示は変わる */ }
+}
+
+const KEYS = {
+  ArrowRight: () => show(current + 1), ArrowDown: () => show(current + 1), ' ': () => show(current + 1), PageDown: () => show(current + 1),
+  ArrowLeft: () => show(current - 1), ArrowUp: () => show(current - 1), PageUp: () => show(current - 1),
+  Home: () => show(0), End: () => show(slides.length - 1),
+  o: toggleOverview, f: toggleFullscreen, t: toggleTheme,
+};
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const action = KEYS[e.key];
+  if (!action) return;
+  e.preventDefault();
+  action();
+});
+
+deck.addEventListener('click', (e) => {
+  if (e.target.closest('a, pre, video')) return;
+  const slide = e.target.closest('.slide');
+  if (document.body.classList.contains('overview')) {
+    if (slide) { show(slides.indexOf(slide)); toggleOverview(); }
+    return;
+  }
+  show(current + (e.clientX < window.innerWidth / 3 ? -1 : 1));
+});
+
+try {
+  const saved = localStorage.getItem('slide-theme');
+  if (saved) document.documentElement.dataset.theme = saved;
+} catch (e) { /* 既定の暗い方で表示 */ }
+
+function showFromHash() { show(parseInt(location.hash.slice(1), 10) - 1 || 0); }
+window.addEventListener('hashchange', showFromHash);
+showFromHash();
+</script>
+
+</body></html>
